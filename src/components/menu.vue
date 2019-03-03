@@ -3,16 +3,15 @@
     <div class="main-menu-logo">
       <a href="/"></a>
     </div>
-    <div className="main-menu-tab">
+    <div class="main-menu-tab">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="item in menu" index="1" :key="item.index" :label="item.label">{{item.label}}</el-menu-item>
       </el-menu>
     </div>
     <div class="main-menu-right-actions">
       <el-dropdown>
-        <span class="el-dropdown-link">
-          <img src="" alt=""/>
-          // 这是头像，圆形
+        <span class="el-dropdown-link user-img">
+          <img src="/static/assets/images/user.jpg" alt=""/>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">

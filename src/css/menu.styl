@@ -1,14 +1,16 @@
 .main-menu
-  display flex
-  flex-direction row
+  height 60px
+  //display flex
+  //flex-direction row
   background $color-bg-dark
   >div
+    float left
     //justify-content center
     //align-items center
   .main-menu-logo
     box-sizing border-box
     width 174px
-    height 64px
+    height 60px
     background url("/static/assets/images/topbar.png") no-repeat
     background-size cover
     background-position 0 0
@@ -19,5 +21,38 @@
       height 100%
       margin-right 20px
   .main-menu-tab
-    color $color-font-gray
-    background $color-bg-dark!important
+    text-align center
+    height 100%
+    //flex 1
+    //width 0
+    //min-width 0
+    >ul
+      color $color-font-gray
+      background $color-bg-dark!important
+      border-bottom none
+      li
+        color #fff
+  .main-menu-right-actions
+    float right
+    color #fff
+    width 100px
+    height 60px
+    padding-right 10px
+    span.user-img
+      display block
+      text-align center
+      color #fff
+      overflow hidden
+      margin-top 14px
+      >img
+        display inline-block
+        width 30px
+        height 30px
+        vertical-align top
+        background #fff
+        border-radius 50%
+      i
+        display inline-block
+        color #fff
+        line-height 30px
+
