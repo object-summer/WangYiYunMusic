@@ -1,10 +1,27 @@
-项目名称：网易云音乐（仿）
-=====
-说明：这是一个基于vue2.0的制作的网易云音乐（仿），api通过NeteaseCloudMusicApi##</br>
-----
-接口<br/>
+# wangyiyunmusic
 
-> 1. 项目的所有接口都通过`http://localhost:<port>/<module-name>/<relative-url>`访问，
-> 2. 开发环境的服务访问地址为：`http://localhost:<port>:3000/`，
-> 3. 比如：`获取用户详情`接口，访问地址为：`http://localhost:<port>:3000/user/detail?uid=32953014`，
-> 4. 详细的接口文件请参考下面的接口文档说明。（待完善）
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

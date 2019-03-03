@@ -1,0 +1,100 @@
+@import "variable-ele";
+
+@import "./ele/base.scss";
+@import "./ele/pagination.scss";
+@import "./ele/dialog.scss";
+@import "./ele/autocomplete.scss";
+@import "./ele/dropdown.scss";
+@import "./ele/dropdown-menu.scss";
+@import "./ele/dropdown-item.scss";
+@import "./ele/menu.scss";
+@import "./ele/submenu.scss";
+@import "./ele/menu-item.scss";
+@import "./ele/menu-item-group.scss";
+@import "./ele/input.scss";
+@import "./ele/input-number.scss";
+@import "./ele/radio.scss";
+@import "./ele/radio-group.scss";
+@import "./ele/radio-button.scss";
+@import "./ele/checkbox.scss";
+@import "./ele/checkbox-button.scss";
+@import "./ele/checkbox-group.scss";
+@import "./ele/switch.scss";
+@import "./ele/select.scss";
+@import "./ele/button.scss";
+@import "./ele/button-group.scss";
+@import "./ele/table.scss";
+@import "./ele/table-column.scss";
+@import "./ele/date-picker.scss";
+@import "./ele/time-select.scss";
+@import "./ele/time-picker.scss";
+@import "./ele/popover.scss";
+@import "./ele/tooltip.scss";
+@import "./ele/message-box.scss";
+@import "./ele/breadcrumb.scss";
+@import "./ele/breadcrumb-item.scss";
+@import "./ele/form.scss";
+@import "./ele/form-item.scss";
+@import "./ele/tabs.scss";
+@import "./ele/tab-pane.scss";
+@import "./ele/tag.scss";
+@import "./ele/tree.scss";
+@import "./ele/alert.scss";
+@import "./ele/notification.scss";
+@import "./ele/slider.scss";
+@import "./ele/loading.scss";
+@import "./ele/row.scss";
+@import "./ele/col.scss";
+@import "./ele/upload.scss";
+@import "./ele/progress.scss";
+@import "./ele/spinner.scss";
+@import "./ele/message.scss";
+@import "./ele/badge.scss";
+@import "./ele/card.scss";
+@import "./ele/rate.scss";
+@import "./ele/steps.scss";
+@import "./ele/step.scss";
+@import "./ele/carousel.scss";
+@import "./ele/scrollbar.scss";
+@import "./ele/carousel-item.scss";
+@import "./ele/collapse.scss";
+@import "./ele/collapse-item.scss";
+@import "./ele/cascader.scss";
+@import "./ele/color-picker.scss";
+@import "./ele/transfer.scss";
+@import "./ele/container.scss";
+@import "./ele/header.scss";
+@import "./ele/aside.scss";
+@import "./ele/main.scss";
+@import "./ele/footer.scss";
+
+
+.el-message-box__header{
+  display: none;
+}
+
+.el-switch{
+  height: 24px;
+  line-height: 24px;
+}
+
+.el-switch__core{
+  outline: none !important;
+}
+.el-switch.is-checked .el-switch__core{
+  border-color: #F6A84B;
+  background-color: #F6A84B;
+}
+.el-input-number .el-input__inner{
+  width: 100%;
+  border-color: #e5e5e5 !important;
+}
+.el-select-dropdown__item{
+  max-width: 320px;
+}
+.el-loading-mask{
+  background-color: rgba(255, 255, 255, .98);
+}
+.el-popover{
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
