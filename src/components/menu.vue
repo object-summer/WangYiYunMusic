@@ -4,12 +4,15 @@
       <a href="/"></a>
     </div>
     <div class="main-menu-tab">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu class="el-menu-demo" mode="horizontal">
         <el-menu-item v-for="item in menu" index="1" :key="item.index" :label="item.label">{{item.label}}</el-menu-item>
       </el-menu>
     </div>
     <div class="main-menu-right-actions">
-      <el-dropdown>
+      <div class="login-exit">
+        <span @click="openLogin">登录</span><i>/</i><span @click="register">注册</span>
+      </div>
+      <el-dropdown v-if="logined">
         <span class="el-dropdown-link user-img">
           <img src="/static/assets/images/user.jpg" alt=""/>
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -29,7 +32,7 @@
           </el-dropdown-item>
           <el-dropdown-item>
             <i>图标</i>
-            <span>退出</span>
+            <span @click="exit">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -38,12 +41,32 @@
 </template >
 <script>
   export default {
-    props:{
-      menu: []
+    props: {
+      menu: {
+        default () {
+          return []
+        }
+      }
     },
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
+      }
+    },
+    methods: {
+      openLogin () {
+        this.store.commit('setLogined', true)
+      },
+      exit () {
+        this.$ajax('http://localhost:8081/logout').then((resp) => {
+          let rst = resp.code
+          if (rst === 200) {
+          this.store.commit('setLogined', false)
+          }
+        })
+      },
+      register () {
+        console.log('11')
       }
     }
   }

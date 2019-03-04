@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Menu from '../components/menu.vue'
 import Main from '../components/Main.vue'
+import Login from '../components/login'
 import '../css/main.styl'
 
 Vue.use(Router)
@@ -20,6 +21,10 @@ export default new Router({
           component: Menu
         }
       ]
+    },
+    {
+      path: '/login',
+      component: Login
     }
   ]
 })
