@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     title="提示"
-    :visible.sync="Visible"
+    :visible.sync="visible"
     modal
     close-on-press-escape
     width="30%">
@@ -32,7 +32,7 @@
           phone: ''
         },
         loading: false,
-        Visible: false
+        visible: false
       }
     },
     methods: {
@@ -44,20 +44,18 @@
       },
       submitForm () {
         this.loading = true
-        this.$ajax(
-          '/login/cellphone',
-          {params: {phone: this.ruleForm.phone, password: this.ruleForm.password}}).then((resp) => {
-            if (resp.data.code !== 200) {
-              this.$message({
-                message: '登录失败，请重试！',
-                duration: 5000
-              })
-            } else if (resp.data.code === 200) {
-          this.$store.commit('logined', true)
-        }
-          })['finally'](() => {
-          this.loading = false
-        })
+        // this.$ajax('/login/cellphone', {params: {phone: this.ruleForm.phone, password: this.ruleForm.password}}).then((resp) => {
+        //   if (resp.data.code !== 200) {
+        //     this.$message({
+        //       message: '登录失败，请重试！',
+        //       duration: 5000
+        //     })
+        //   } else if (resp.data.code === 200) {
+        //     this.$store.commit('logined', true)
+        //   }
+        // })['finally'](() => {
+        //   this.loading = false
+        // })
       }
     }
   }

@@ -10,7 +10,7 @@
     </div>
     <div class="main-menu-right-actions">
       <div class="login-exit">
-        <span @click="openLogin">登录</span><i>/</i><span @click="register">注册</span>
+        <span @click="aaopenLogin">登录</span><i>/</i><span @click="register">注册</span>
       </div>
       <el-dropdown v-if="logined">
         <span class="el-dropdown-link user-img">
@@ -54,23 +54,20 @@
       }
     },
     methods: {
-      openLogin () {
-        this.store.commit('setLogined', true)
+      aaopenLogin () {
+        this.openLoginModal()
       },
-      exit () {
-        this.$ajax('http://localhost:8081/logout').then((resp) => {
-          let rst = resp.code
-          if (rst === 200) {
-          this.store.commit('setLogined', false)
-          }
-        })
-      },
+      // exit () {
+      //   this.$ajax('http://localhost:3000/logout').then((resp) => {
+      //     let rst = resp.code
+      //     if (rst === 200) {
+      //       this.store.commit('setLogined', false)
+      //     }
+      //   })
+      // },
       register () {
         console.log('11')
       }
     }
   }
 </script>
-// <style lang="stylus">
-//   @require "./css/main.styl"
-// </style>

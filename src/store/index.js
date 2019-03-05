@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as mutations from './mutations'
 
 Vue.use(Vuex)
 
-export default new Vuex.store({
+export default new Vuex.Store({
   state: {
     logined: false
   },
-  mutations: {
-    setLogined (state, data) {
-      state.loadend = data
-    }
-  }
+  mutations
 })

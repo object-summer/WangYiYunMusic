@@ -1,11 +1,11 @@
-import Vue from 'Vue'
+import Vue from 'vue'
 import LoginModal from './login'
 
 let LoginModalComponent = Vue.extend(LoginModal)
 
 export default function () {
   let vm = new LoginModalComponent()
-  vm.$mount
+  vm.$mount()
   document.body.appendChild(vm.$el)
   return vm.open()
 }

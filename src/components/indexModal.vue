@@ -51,13 +51,13 @@
       loadBanner () {
         this.$ajax({
           method: 'get',
-          url: 'http://localhost:8081/banner'
+          url: 'http://localhost:3000/banner'
         }).then((resp) => {
           this.imgList = resp.data.banners
         })
       },
       loadRecommendList () {
-        this.$ajax.get('http://localhost:8081/recommend/resource').then((resp) => {
+        this.$ajax.get('http://localhost:3000/recommend/resource').then((resp) => {
           this.remommendList = resp.data
         })
       }
