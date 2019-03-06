@@ -1,7 +1,7 @@
 import loginModal from '../components/loginModal'
 const mixins = {
   methods: {
-    openLoginModal() {
+    openLoginModal () {
       return loginModal()
     }
   }

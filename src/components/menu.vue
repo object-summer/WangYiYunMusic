@@ -12,7 +12,7 @@
       <div class="login-exit">
         <span @click="aaopenLogin">登录</span><i>/</i><span @click="register">注册</span>
       </div>
-      <el-dropdown v-if="logined">
+      <el-dropdown v-if="">
         <span class="el-dropdown-link user-img">
           <img src="/static/assets/images/user.jpg" alt=""/>
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -57,14 +57,6 @@
       aaopenLogin () {
         this.openLoginModal()
       },
-      // exit () {
-      //   this.$ajax('http://localhost:3000/logout').then((resp) => {
-      //     let rst = resp.code
-      //     if (rst === 200) {
-      //       this.store.commit('setLogined', false)
-      //     }
-      //   })
-      // },
       register () {
         console.log('11')
       }
