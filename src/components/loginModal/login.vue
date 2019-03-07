@@ -15,7 +15,7 @@
           <el-input type="password" v-model="ruleForm.password" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="login(ruleForm)">提交</el-button>
+          <el-button type="primary" @click="doLogin(ruleForm)">提交</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -23,8 +23,7 @@
   </el-dialog>
 </template>
 <script>
-  import router from '@/router'
-  import store from '../../store'
+  import Api from '../../servise.js'
   export default {
     data () {
       return {
@@ -36,48 +35,39 @@
         visible: false
       }
     },
+    computed: {
+      backUrl () {
+        return this.$route.query && (this.$route.query.backUrl || '')
+      }
+    },
     methods: {
-      // ...mapMutations(['changeLogin']),
-      open() {
+      open () {
         this.visible = true
       },
-      close() {
+      close () {
         this.visible = false
       },
-      loginModal () {
-        return new Promise((resolve, reject) => {
-          this.$ajax.get('http://localhost:3000/login/cellphone',
-          {
-            params:
-              {
-                phone: this.ruleForm.phone,
-                password: this.ruleForm.password
-              }
-          })
-          .then(res => {
-            if (!res.data.bindings[0] || res.data.bindings[0].expired) {
-              reject(new Error('登陆过期'))
-              router.push('/login')
-              return
-            }
-            store.commit('setUserInfo', res.data.profile)
-        router.push('/login')
-            if (res.code === 200) {
-
-            }
-            resolve(res)
-          }, err => {
-              router.push('/login')
-              reject(err)
-            })
+      doLogin () {
+        if (!/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(this.ruleForm.phone)) {
+          this.$message.error('请输入正确的手机号')
+          return
+        }
+        this.loading = true
+        Api.login(this.ruleForm.phone, this.ruleForm.password).then(() => {
+          this.close()
+          this.$message('登录成功')
+        }).then(() => {
+          if (this.backUrl) {
+            this.routeReplace(this.backUrl)
+          } else {
+            this.routeReplace('/')
+          }
+        })['finally'](() => {
+          this.loading = false
         })
       },
-      login() {
-        if (this.ruleForm.phone === '' || this.ruleForm.password === '') {
-          alert('账号或密码不能为空')
-        } else {
-          this.loginModal()
-        }
+      resetForm () {
+        this.ruleForm = {}
       }
     }
   }

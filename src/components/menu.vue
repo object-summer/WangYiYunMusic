@@ -9,10 +9,10 @@
       </el-menu>
     </div>
     <div class="main-menu-right-actions">
-      <div class="login-exit">
-        <span @click="aaopenLogin">登录</span><i>/</i><span @click="register">注册</span>
+      <div class="login-exit" v-if="!$store.userInfo">
+        <span @click="doLogin">登录</span><i>/</i><span @click="register">注册</span>
       </div>
-      <el-dropdown v-if="">
+      <el-dropdown v-if="$store.userInfo">
         <span class="el-dropdown-link user-img">
           <img src="/static/assets/images/user.jpg" alt=""/>
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -32,7 +32,7 @@
           </el-dropdown-item>
           <el-dropdown-item>
             <i>图标</i>
-            <span @click="exit">退出</span>
+            <span @click="doLogout">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -54,11 +54,15 @@
       }
     },
     methods: {
-      aaopenLogin () {
+      doLogin () {
         this.openLoginModal()
       },
       register () {
         console.log('11')
+      },
+      doLogout () {
+        this.$store.commit('logout')
+        this.$message('已退出')
       }
     }
   }
