@@ -25,6 +25,7 @@
     "interactjs": "^1.3.4",
     "loadsh": "0.0.3",
     "lodash": "^4.17.10",
+    "mint-ui": "^2.2.13",
     "postcss-url": "^8.0.0",
     "promise": "^8.0.1",
     "tslib": "^1.9.3",

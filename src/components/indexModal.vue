@@ -1,13 +1,20 @@
 <template>
-    <div class="index-wrap">
-      <div class="banner">
-        <el-carousel :interval="5000" arrow="always">
-          <el-carousel-item v-for="item in imgList" :key="item.id">
-            <img :src="item.imageUrl" >
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <div class="index-bottom-wrap">
+  <div class="index-wrap">
+    <div class="banner">
+      <mt-swipe :auto="0">
+        <mt-swipe-item v-for="item in imgList" :key="item.id">
+          <img :src="item.imageUrl" >
+        </mt-swipe-item>
+      </mt-swipe>
+    </div>
+    <!--<div class="banner">-->
+      <!--<el-carousel :interval="5000" arrow="always">-->
+        <!--<el-carousel-item v-for="item in imgList" :key="item.id">-->
+          <!--<img :src="item.imageUrl" >-->
+        <!--</el-carousel-item>-->
+      <!--</el-carousel>-->
+    <!--</div>-->
+    <div class="index-bottom-wrap">
         <div class="inde-left">
           <div class="recommend">
             <div class="recommend-title">
@@ -115,7 +122,7 @@
           </div>
         </div>
       </div>
-    </div>
+  </div>
 </template>
 <script>
   import _ from 'lodash'
@@ -128,7 +135,8 @@
         recommendList: [],
         presonList: [],
         ProgramsList: [],
-        userInfo: {}
+        userInfo: {},
+        selected: ''
       }
     },
     created () {

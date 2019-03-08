@@ -11,6 +11,8 @@ import store from './store'
 // element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 // 路由
 import router from './router'
 
@@ -21,6 +23,7 @@ import './css/main.styl'
 import routerMixin from './router/mixin'
 Vue.use(Vuex)
 Vue.use(ElementUI)
+Vue.use(MintUI)
 Vue.mixin(routerMixin)
 
 // 组件集合
