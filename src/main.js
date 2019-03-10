@@ -17,6 +17,7 @@ import 'mint-ui/lib/style.css'
 import router from './router'
 
 // template and css
+
 import App from './App'
 import './css/main.styl'
 // 混入路由跳转
