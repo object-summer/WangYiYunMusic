@@ -21,6 +21,9 @@ import App from './App'
 import './css/main.styl'
 // 混入路由跳转
 import routerMixin from './router/mixin'
+import 'amfe-flexible'
+import './utils/flex'
+Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(ElementUI)
 Vue.use(MintUI)
