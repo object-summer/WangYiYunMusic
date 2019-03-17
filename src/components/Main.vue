@@ -1,31 +1,28 @@
 <template>
   <div>
-    <s-menu :menu="menu"></s-menu>
-    <s-index-modal></s-index-modal>
+    <s-menu :menus="menus"></s-menu>
     <transition>
       <router-view></router-view>
     </transition>
-    <s-footer></s-footer>
   </div>
 </template>
 
 <script>
   import Menu from './menu.vue'
-  import IndexModal from './indexModal.vue'
-  import Footer from './footer.vue'
   export default {
-    components: {SMenu: Menu, SFooter: Footer, SIndexModal: IndexModal},
+    components: {SMenu: Menu},
     data () {
       return {
         menu: []
       }
     },
     created () {
-      this.menu = [
-        {index: 'home', defaultLink: '/', label: '首页'},
-        {index: 'rankingList', defaultLink: '/rankingList', label: '排行榜'},
-        {index: 'songList', deafaultLink: '/songList', label: '歌单'},
-        {index: 'zhubo', defaultLink: '/zhubo', label: '主播电台'}
+      this.menus = [
+        {index: 'home', defaultLink: '/music', label: '首页'},
+        {index: 'PlayList', defaultLink: '/PlayList', label: '歌单', match: /^\/PlayList/g},
+        {index: 'Rank', defaultLink: '/Rank', label: '排行榜', match: /^\/Rank/g},
+        {index: 'Anchor', defaultLink: '/Anchor', label: '主播电台', match: /^\/Anchor/g},
+        {index: 'Album', defaultLink: '/Album', label: '热门新碟', match: /^\/Album/g}
       ]
     }
   }

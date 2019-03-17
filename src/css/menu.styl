@@ -1,26 +1,44 @@
-$menu-height = 4rem
+$menu-height = 60px
 .main-header
   height $menu-height
-  display flex
-  flex-direction row
-  background $color-bg-primary
-  >ul.index-menu
-    flex 1
+  background $color-bg-dark
+  .wrap
+    width 1100px
+    margin 0 auto
     display flex
     flex-direction row
-    li
-      flex 1
-      justify-content center
-      align-items center
-      text-align center
-      align-self center
-
-  span.user-center,
-  span.search,
-  span.index-search
-    padding 0 20px
-    width 40px
+  .main-menu-logo
+    width 190px
     height $menu-height
-    z-index 999
-    text-align center
-    line-height $menu-height
+    background url('/static/assets/images/topbar.png') no-repeat
+    background-position 0 -8px
+  .main-menu-tab
+    flex 1
+    width 0
+    min-width 0
+    .el-menu
+      background $color-bg-dark
+      li:hover
+        background $color-bg-gray
+        color #fff
+    .el-menu-item.is-active
+      color #fff
+      background $color-bg-gray
+  .all-search
+    width 220px
+    margin-right 40px
+    justify-items center
+    align-items center
+    display flex
+    .el-input
+      justify-items center
+      align-items center
+      input
+        border-radius 28px
+  .main-menu-right-actions
+    color #fff
+    width 100px
+    display flex
+    align-items center
+    justify-content center
+

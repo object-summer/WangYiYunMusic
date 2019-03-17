@@ -12,8 +12,5 @@
   }
 </script>
 <style lang="scss">
-  @import "/css/ele.scss"
-</style>
-<style lang="stylus">
-  @require "/css/main.styl"
+  @import '/css/ele.scss'
 </style>

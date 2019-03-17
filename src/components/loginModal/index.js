@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import LoginModal from './login'
 import router from '../../router/index'
+import store from '../../store/index'
 let LoginModalComponent = Vue.extend({
   components: {LoginModal},
   template: '<LoginModal/>',
-  router
+  router,
+  store
 })
 export default function () {
   let vm = new LoginModalComponent()

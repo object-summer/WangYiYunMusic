@@ -1,5 +1,4 @@
 import router from './index'
-
 export default {
   methods: {
     routeTo (location) {

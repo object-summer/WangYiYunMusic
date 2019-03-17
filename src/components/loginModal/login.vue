@@ -48,22 +48,23 @@
         this.visible = false
       },
       doLogin () {
+        console.log(this.$store.state.auth)
         if (!/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(this.ruleForm.phone)) {
           this.$message.error('请输入正确的手机号')
           return
         }
         this.loading = true
         Api.login(this.ruleForm.phone, this.ruleForm.password).then(() => {
-          this.close()
+          console.log(this.$store.state.auth)
           this.$message('登录成功')
-        }).then(() => {
           if (this.backUrl) {
-            this.routeReplace(this.backUrl)
+            this.routeTo(this.backUrl)
           } else {
-            this.routeReplace('/')
+            this.routeTo('/')
           }
         })['finally'](() => {
           this.loading = false
+          this.visible = false
         })
       },
       resetForm () {

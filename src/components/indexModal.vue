@@ -1,19 +1,6 @@
 <template>
   <div class="index-wrap">
-    <div class="banner">
-      <!--<mt-swipe :auto="0">-->
-        <!--<mt-swipe-item v-for="item in imgList" :key="item.id">-->
-          <!--<img :src="item.imageUrl" >-->
-        <!--</mt-swipe-item>-->
-      <!--</mt-swipe>-->
-    </div>
-    <!--<div class="banner">-->
-      <!--<el-carousel :interval="5000" arrow="always">-->
-        <!--<el-carousel-item v-for="item in imgList" :key="item.id">-->
-          <!--<img :src="item.imageUrl" >-->
-        <!--</el-carousel-item>-->
-      <!--</el-carousel>-->
-    <!--</div>-->
+    <s-banner :items="imgList"></s-banner>
     <div class="index-bottom-wrap">
         <div class="inde-left">
           <div class="recommend">
@@ -92,34 +79,34 @@
           </div>
         </div>
         <div class="index-right">
-          <div class="user-info">
-            <div v-if="userInfo" class="base-info">
-              <div>
-                <img src="" alt="">
-              </div>
-              <div>
-                <span>{{userInfo.nickname}}</span>
-                <el-button @click="checkIn">签到</el-button>
-              </div>
-              <ul>
-                <li>
-                  <i>11</i>
-                  <span>动态</span>
-                </li>
-                <li>
-                  <i>11</i>
-                  <span>动态</span>
-                </li>
-                <li>
-                  <i>11</i>
-                  <span>动态</span>
-                </li>
-              </ul>
-            </div>
-            <template v-else>
-              <p>aa</p>
-            </template>
-          </div>
+          <!--<div class="user-info">-->
+            <!--<div v-if="!userInfo" class="base-info">-->
+              <!--<div>-->
+                <!--<img src="" alt="">-->
+              <!--</div>-->
+              <!--<div>-->
+                <!--<span>{{userInfo.nickname}}</span>-->
+                <!--<el-button @click="checkIn">签到</el-button>-->
+              <!--</div>-->
+              <!--<ul>-->
+                <!--<li>-->
+                  <!--<i>11</i>-->
+                  <!--<span>动态</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                  <!--<i>11</i>-->
+                  <!--<span>动态</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                  <!--<i>11</i>-->
+                  <!--<span>动态</span>-->
+                <!--</li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--<template v-else>-->
+              <!--<p>aa</p>-->
+            <!--</template>-->
+          <!--</div>-->
         </div>
       </div>
   </div>
@@ -127,7 +114,9 @@
 <script>
   import _ from 'lodash'
   import store from '../store'
+  import Banner from './Banner.vue'
   export default {
+    components: {SBanner: Banner},
     data () {
       return {
         imgList: [],
@@ -185,7 +174,7 @@
       },
       // /user/subcount
       loadUserInfo () {
-        this.userInfo = store.state.userInfo.profile
+        this.userInfo = store.state
         console.log(this.userInfo)
       },
       checkIn () {

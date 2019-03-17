@@ -1,23 +1,22 @@
 @require 'variable.styl'
+// 所有页面的wrap层
+.wrap
+  width 1080px
 .mint-tabbar
   top 0
 .index-wrap
+  width 100%
   .banner
-    background $color-bg-primary
-    font-size 12px
-    height 10rem
-    .mint-swipe-items-wrap
-      display flex
-      flex-direction row
-    .mint-swipe-item
-      flex-shrink 0
-      width 100%
-      height 100%
-    img
-      display block
-      height 100%
-      width 100%
-      border-radius 0.2rem
+    position relative
+    width 1080px
+    height 400px
+    margin 0 auto
+    .el-carousel__container
+      height 400px
+      img
+        display block
+        height 100%
+        width 100
 $item-wrap-width = 738px
 .index-bottom-wrap
   border 1px solid #000
