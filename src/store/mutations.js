@@ -8,6 +8,6 @@ export const setAuth = (state, auth) => {
 }
 export const logout = (state, data) => {
   setAuth(state, null)
-  setUserInfo(state, null)
+  setUserAutoInfo(state, null)
   sessionStorage.clear()
 }

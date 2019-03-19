@@ -2,6 +2,16 @@
 // 所有页面的wrap层
 .wrap
   width 1080px
+.--title
+  font-size 20px
+  font-style normal
+  font-weight 500
+  color $color-font-light-gray
+  padding 4px 0
+  border-bottom 2px solid $color-bg-primary
+  i
+    font-size 12px
+    font-style normal
 .mint-tabbar
   top 0
 .index-wrap
@@ -39,36 +49,13 @@ $item-wrap-width = 738px
     .recommend-wrap
       .recommend-list
         margin-top 10px
-      ul
         li
-          float left
-          padding 10px
-          width 169px
-          line-height 1.4
-          &:nth-of-type(1)
-          &:nth-of-type(5)
-            padding-left 0
-          &:nth-of-type(4)
-          &:nth-of-type(8)
-            padding-right 0
-          .cover
-            img
-              display block
-              width 100%
-              height 100%
-              vertical-align top
-          .desc
-            line-height 1.2
-            padding 4px 0
-            span
-              display block
-            span:first-child
-              font-size 13px
-              margin-bottom 4px
-            span:last-child
-              color $color-font-gray
+          width 137px
+        .cover
+          width 137px
+          height @width
 // title stly
-.recommend-title
+.comment-title
   border-bottom 2px solid $color-bg-primary
   height 33px
   padding 0 10px 0px 34px
@@ -84,17 +71,52 @@ $item-wrap-width = 738px
       &:hover
         text-decoration underline
         color $color-bg-primary
-@media screen and (min-width: 360px)
-  .banner
-    min-height 10rem
-
-//@media screen and (min-width: 414px)
-//  .u-plhead .plhead_fl
-//    width:145px;
-//    height: 145px
-//
-//
-//@media screen and (min-width: 768px)
-//  .u-plhead .plhead_fl
-//    width:200px;
-//    height: 200px
+  .new-hot
+    float right
+    border 1px solid $color-bd-gray
+    border-radius 4px
+    span
+      display inline-block
+      padding 4px 6px
+      cursor pointer
+      background $color-bd-gray
+      &:first-child
+        border-radius 4px 0 0 4px
+      &:last-child
+        border-radius 0 4px 4px 0
+      &.active
+        background $color-bg-primary
+        color #fff
+.part-base-table
+  ul
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    margin 20px 0 0 -50px
+    li
+      width 159px
+      line-height 1.4
+      flex-wrap wrap
+      padding 0 0 30px 50px
+      .cover
+        position relative
+        width 159px
+        height @width
+        img
+          display block
+          width 100%
+          height 100%
+          vertical-align top
+        .listen-total
+          position absolute
+          bottom 0
+          left 2px
+          color #d6d6d6
+      .desc
+        line-height 1.2
+        padding 4px 0
+        span
+          display block
+        span:first-child
+          font-size 13px
+          margin-bottom 4px

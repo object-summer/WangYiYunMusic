@@ -1,4 +1,4 @@
-const api ={
+const api = {
   // 这里存放的是各类api
   // 登录相关的api
   login: {

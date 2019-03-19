@@ -17,7 +17,7 @@ import App from './App'
 import './css/main.styl'
 // 混入路由跳转
 import routerMixin from './router/mixin'
-import {localStorage, sessionStorage} from './storage/index'
+import {localStorage} from './storage/index'
 (function () {
   Vue.config.productionTip = false
   Vue.prototype.$ajax = axios
@@ -35,7 +35,6 @@ import {localStorage, sessionStorage} from './storage/index'
   Vue.mixin({
     computed: {
       loggedIn () {
-        debugger
         return !!store.state.auth
       }
     }

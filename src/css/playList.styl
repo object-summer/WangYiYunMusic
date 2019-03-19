@@ -1,0 +1,62 @@
+.play-list-wrap
+  margin 0 auto
+  border 1px solid $color-bd-gray
+  .play-list
+    padding 30px
+    .select-item
+      padding 6px
+      margin-left 10px
+      border 1px solid $color-bd-gray
+      text-align center
+      border-radius 4px
+      color $color-link
+      cursor pointer
+.cate-menu-wrap
+  position absolute
+  background #fff
+  width 700px
+  box-shadow 1px 2px 3px $color-bd-gray
+  border 1px solid $color-bd-gray
+  margin-top 20px
+  border-radius 8px
+  z-index 2
+  >.title
+    width 100%
+    padding 20px
+    cursor pointer
+    border-bottom 1px solid $color-bd-gray
+    span
+      padding 6px
+      border 1px solid $color-bd-gray
+      border-radius 4px
+      font-weight bold
+  .cate-container
+    .cate-menu
+      display flex
+      flex-direction row
+      .group-name
+        width 60px
+        font-weight bold
+        text-align right
+        padding 10px
+        border-right 1px solid $color-bd-gray
+      .group-container
+        flex 1
+        padding 10px
+        li
+          color #000
+          padding-right 10px
+          margin-bottom 6px
+          position relative
+          cursor pointer
+          &:after
+            content ''
+            width 1px
+            height 12px
+            background $color-bd-gray
+            position absolute
+            top 50%
+            right 0
+            display block
+            margin-top -4px
+            margin-right 6px

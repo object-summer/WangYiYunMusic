@@ -4,76 +4,31 @@
     <div class="index-bottom-wrap">
         <div class="inde-left">
           <div class="recommend">
-            <div class="recommend-title">
+            <div class="comment-title">
               <span class="--title">热门推荐</span>
               <ul class="category-title">
                 <li v-for="item in hotPlayList" :key="item.id">{{item.name}}</li>
               </ul>
             </div>
             <div class="recommend-wrap">
-              <ul class="recommend-list">
-                <li v-for="item in recommendList" :key="item.id">
-                  <div class="cover">
-                    <img :src="item.coverImgUrl" alt="">
-                    <a href=""></a>
-                    <div class="bottom">
-                  <span>
-                    <i>{{item.playcount}}</i>
-                  </span>
-                    </div>
-                  </div>
-                  <div class="desc">{{item.name}}</div>
-                </li>
-              </ul>
+              <part-base-table :items="recommendList"></part-base-table>
             </div>
           </div>
           <div class="personalized">
-            <div class="recommend-title">
+            <div class="comment-title">
               <span class="--title">个性化推荐</span>
             </div>
             <div class="recommend-wrap">
-              <ul class="recommend-list">
-                <li v-for="item in presonList" :key="item.id">
-                  <div class="cover">
-                    <img :src="item.picUrl" alt="">
-                    <a href=""></a>
-                    <div class="bottom">
-                      <span>
-                        <!--<i>{{item.playcount}}</i>-->
-                      </span>
-                    </div>
-                  </div>
-                  <div class="desc">
-                    <span>{{item.name}}</span>
-                    <span>{{item.copywriter}}</span>
-                  </div>
-                </li>
-              </ul>
+              <part-base-table :items="presonList"></part-base-table>
             </div>
           </div>
           <div class="Programs">
-            <div class="recommend-title">
+            <div class="comment-title">
               <span class="--title">精彩节目推荐</span>
             </div>
             <div class="recommend-wrap">
               <div class="recommend-wrap">
-                <ul class="recommend-list">
-                  <li v-for="item in ProgramsList" :key="item.id">
-                    <div class="cover">
-                      <img :src="item.coverUrl" alt="">
-                      <a href=""></a>
-                      <div class="bottom">
-                      <span>
-                        <!--<i>{{item.playcount}}</i>-->
-                      </span>
-                      </div>
-                    </div>
-                    <div class="desc">
-                      <span>{{item.name}}</span>
-                      <span>{{item.reason}}</span>
-                    </div>
-                  </li>
-                </ul>
+                <part-base-table :items="ProgramsList"></part-base-table>
               </div>
             </div>
           </div>
@@ -115,8 +70,9 @@
   import _ from 'lodash'
   import store from '../store'
   import Banner from './Banner.vue'
+  import PartBaseTable from '../components/PartBaseTable'
   export default {
-    components: {SBanner: Banner},
+    components: {SBanner: Banner, PartBaseTable},
     data () {
       return {
         imgList: [],
@@ -139,6 +95,7 @@
     methods: {
       // banner
       loadBanner () {
+        console.log(store.getters.userInfo)
         this.$ajax({
           method: 'get',
           url: 'http://localhost:3000/banner'

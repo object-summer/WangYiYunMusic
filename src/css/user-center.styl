@@ -1,3 +1,61 @@
 .user-center
+  padding 40px
   margin 0 auto
-  border 1px solid #000
+  border 1px solid $color-bd-gray
+  background $color-bg-white
+  .user-base-info
+    display flex
+    flex-direction row
+    .left
+      position relative
+      width 160px
+      height 160px
+      margin-right 40px
+      img
+        width 160px
+        display block
+        padding 3px
+        border 1px solid $color-bd-gray
+    .right
+      flex 1
+      width 0
+      min-width 0
+      .title
+        border-bottom 1px solid $color-bd-gray
+        font-size 24px
+        padding 6px
+        i
+          font-size 18px
+      .content
+        .content-top
+          padding-top 10px
+          >ul
+            li
+              display inline-block
+              border-right 1px solid $color-bd-gray
+              padding 0 20px 0 10px
+              text-align center
+              font-style normal
+              &:first-child
+                padding-left 0
+              i
+                display block
+                font-size 16px
+                font-style normal
+              span
+                display block
+                font-size 12px
+                color #808080
+          .desc
+            padding 20px 0
+            li
+              display block
+              padding 4px 0
+
+
+
+  .user-music-wrap
+    .--title
+      i
+        font-size 12px
+

@@ -9,6 +9,7 @@ import Rank from '../components/Rank.vue'
 import Album from '../components/Album.vue'
 import Anchor from '../components/Anchor.vue'
 import PlayList from '../components/PlayList.vue'
+import PlayListContainer from '../components/PlayListContainer.vue'
 import MyMusic from '../components/MyMusic.vue'
 import Updata from '../components/Updata.vue'
 import '../css/main.styl'
@@ -52,8 +53,15 @@ export default new Router({
         },
         {
           path: 'PlayList',
-          component: PlayList,
-          meta: {isLogin: true}
+          component: PlayListContainer,
+          meta: {isLogin: true},
+          children: [
+            {
+              path: '',
+              component: PlayList,
+              meta: {isLogin: true}
+            }
+          ]
         },
         {
           path: 'Album',

@@ -9,9 +9,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // 用户token
+    // 用户状态和所有信息
     auth: null,
-    // 用户信息，包括登录状态
+    // 用户信息，包括登录状态和uid
     userAutoInfo: {}
   },
   mutations,
