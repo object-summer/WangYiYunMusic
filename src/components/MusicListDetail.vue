@@ -1,6 +1,6 @@
 <template>
-  <div class="music-list-detail wrap">
-    <div class="m-l-d-wrap">
+  <div class="music-list-detail">
+    <div class="m-l-d-wrap wrap">
       <div class="m-l-detail-info">
         <div class="m-l-d-info-pic">
           <img :src="musicListDetail.coverImgUrl" alt="">
