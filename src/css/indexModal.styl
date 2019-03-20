@@ -2,13 +2,13 @@
 // 所有页面的wrap层
 .wrap
   width 1080px
+  background #fff
 .--title
   font-size 20px
   font-style normal
   font-weight 500
   color $color-font-light-gray
   padding 4px 0
-  border-bottom 2px solid $color-bg-primary
   i
     font-size 12px
     font-style normal
@@ -16,6 +16,9 @@
   top 0
 .index-wrap
   width 100%
+  background
+  >div
+    background $color-bg-white
   .banner
     position relative
     width 1080px
@@ -29,7 +32,7 @@
         width 100
 $item-wrap-width = 738px
 .index-bottom-wrap
-  border 1px solid #000
+  border 1px solid $color-bd-gray
   width 1080px
   margin 0 auto
   display flex
@@ -102,6 +105,7 @@ $item-wrap-width = 738px
         position relative
         width 159px
         height @width
+        cursor pointer
         img
           display block
           width 100%

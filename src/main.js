@@ -52,7 +52,7 @@ import {localStorage} from './storage/index'
       next()
       // 如果已登录，还想想进入登录注册界面，则定向回首页
       if (!to.meta.isLogin) {
-        this.$message.error('请先退出登录')
+        // this.$message.error('请先退出登录')
         next({
           path: '/'
         })

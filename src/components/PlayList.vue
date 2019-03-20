@@ -2,7 +2,7 @@
   <div class="play-list-wrap wrap">
     <div class="play-list">
       <div class="comment-title">
-        <span class="--title">全部</span>
+        <span class="--title">{{cat}}</span>
         <span class="select-item" @click="CatSwitch">
           全部选择
           <i> > </i>
@@ -10,19 +10,11 @@
         <div class="new-hot">
           <span :class="{active : hot}" @click="selectList">最新</span><span :class="{active : !hot}" @click="selectList">最热</span>
         </div>
-        <play-music-list v-loading="loading" v-if="catVisible" :items="subList" @selectTag="selectTag" :allList="allList"></play-music-list>
+        <play-music-list v-loading="loading" v-if="catVisible" :items="subList" @selectCat="selectCat" :allList="allList"></play-music-list>
       </div>
-      <div class="recommend-wrap">
-        <div class="recommend-wrap">
-          <part-base-table v-loading="loading" :items="currentMusicList"></part-base-table>
-        </div>
-        <div class="pagination-wrapper">
-          <el-pagination
-            :pager-count="5"
-            layout="prev, pager, next"
-            :total="pagination.totalCount" :page-size="pagination.pageSize" :current-page="+pagination.pageIndex" @current-change="loadData"></el-pagination>
-        </div>
-      </div>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -30,61 +22,30 @@
 <script>
   import _ from 'lodash'
   import PlayMusicList from '../components/parts/PlayMusicMenu'
-  import PartBaseTable from '../components/PartBaseTable'
   export default {
-    components: {PlayMusicList, PartBaseTable},
+    components: {PlayMusicList},
     data () {
       return {
         loading: false,
         catlist: [],
         subList: [],
-        musicList: [],
         sub: [],
         catVisible: false,
         hot: true,
-        pagination: {
-          totalCount: 0,
-          pageIndex: 1,
-          pageSize: 15
-        },
-        currentMusicList: [],
-        page: ''
+        cat: '全部'
       }
     },
     created () {
       this.loadMusicList()
-      this.loadData()
     },
     methods: {
       selectList () {
-        this.hot = !this.hot
-        this.loadData()
+        this.$store.commit('changeHot', !this.hot)
+        this.routeTo({path: 'PlayList', query: {order: this.hot ? 'hot' : 'new', cat: this.cat}})
+        this.hot = this.$store.state.hot
       },
-      selectTag (cat) {
-        this.loadData(0, cat)
-      },
-      loadData (pageIndex, cat) {
-        this.loading = true
-        this.$ajax.get('http://localhost:3000/top/playlist', {
-          params: {
-            limit: pageIndex ? pageIndex * this.pagination.pageSize : this.pagination.pageSize,
-            order: this.hot ? 'new' : 'hot',
-            cat: cat
-          }
-        }).then((rst) => {
-          if (rst && rst.data.playlists) {
-            this.musicList = rst.data.playlists
-            this.pagination.totalCount = rst.data.total
-            let newItems = []
-            let currentKey = pageIndex ? (pageIndex - 1) * this.pagination.pageSize : 0
-            for (let i = currentKey; i < (currentKey + this.pagination.pageSize); i++) {
-              newItems.push(this.musicList[i])
-            }
-            this.currentMusicList = newItems
-          }
-        })['finally'](() => {
-          this.loading = false
-        })
+      selectCat (cat) {
+        this.cat = cat
       },
       loadMusicList () {
         this.$ajax.get('http://localhost:3000/playlist/catlist').then((resp) => {

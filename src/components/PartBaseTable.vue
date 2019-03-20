@@ -2,7 +2,7 @@
   <div class="part-base-table">
     <ul class="recommend-list">
       <li v-for="(item, idx) in items" :key="`${idx}`">
-        <div class="cover">
+        <div class="cover" @click="routeTo({ path: '/musiclistdetail', query: { id: item.id} })">
           <img :src="item.coverImgUrl || item.picUrl" alt="">
           <a href=""></a>
           <div class="listen-total">

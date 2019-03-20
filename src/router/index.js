@@ -8,8 +8,10 @@ import UserCenter from '../components/userCenter.vue'
 import Rank from '../components/Rank.vue'
 import Album from '../components/Album.vue'
 import Anchor from '../components/Anchor.vue'
-import PlayList from '../components/PlayList.vue'
-import PlayListContainer from '../components/PlayListContainer.vue'
+import playlist from '../components/playlist.vue'
+import playlistContainer from '../components/playlistContainer.vue'
+import MusicListDetail from '../components/MusicListDetail.vue'
+import Common from '../components/common.vue'
 import MyMusic from '../components/MyMusic.vue'
 import Updata from '../components/Updata.vue'
 import '../css/main.styl'
@@ -46,20 +48,28 @@ export default new Router({
           meta: {isLogin: true},
           children: [
             {
+              // 测试
               path: '11',
               component: Rank
             }
           ]
         },
         {
-          path: 'PlayList',
-          component: PlayListContainer,
+          path: 'playlist',
+          component: playlistContainer,
           meta: {isLogin: true},
           children: [
             {
-              path: '',
-              component: PlayList,
-              meta: {isLogin: true}
+              path: '/',
+              component: playlist,
+              meta: {isLogin: true},
+              children: [
+                {
+                  path: '',
+                  meta: {isLogin: true},
+                  component: Common
+                }
+              ]
             }
           ]
         },
@@ -77,6 +87,11 @@ export default new Router({
           path: 'MyMusic',
           component: MyMusic,
           meta: {isLogin: true}
+        },
+        {
+          path: 'musiclistdetail',
+          meta: {isLogin: true},
+          component: MusicListDetail
         }
       ]
     },

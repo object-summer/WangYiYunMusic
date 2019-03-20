@@ -11,3 +11,7 @@ export const logout = (state, data) => {
   setUserAutoInfo(state, null)
   sessionStorage.clear()
 }
+// 改变歌单页面的new hot
+export const changeHot = (state, data) => {
+  state.hot = data
+}

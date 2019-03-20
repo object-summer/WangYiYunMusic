@@ -12,7 +12,9 @@ export default new Vuex.Store({
     // 用户状态和所有信息
     auth: null,
     // 用户信息，包括登录状态和uid
-    userAutoInfo: {}
+    userAutoInfo: {},
+    // 歌单页面的hot new
+    hot: true
   },
   mutations,
   actions,

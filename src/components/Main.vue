@@ -19,7 +19,7 @@
     created () {
       this.menus = [
         {index: 'home', defaultLink: '/music', label: '首页'},
-        {index: 'PlayList', defaultLink: '/PlayList', label: '歌单', match: /^\/PlayList/g},
+        {index: 'playlist', defaultLink: '/playlist', label: '歌单', match: /^\/playlist/g},
         {index: 'Rank', defaultLink: '/Rank', label: '排行榜', match: /^\/Rank/g},
         {index: 'Anchor', defaultLink: '/Anchor', label: '主播电台', match: /^\/Anchor/g},
         {index: 'Album', defaultLink: '/Album', label: '热门新碟', match: /^\/Album/g}
