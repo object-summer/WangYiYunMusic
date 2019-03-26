@@ -4,12 +4,12 @@
     overflow hidden
   .m-l-detail-info
     padding 47px 30px 40px 39px
-    border 1px solid $color-bd-gray
+    border-right 1px solid $color-bd-gray
     margin-right 271px
     display flex
     flex-direction row
   .m-l-d-info-pic
-    width 300px
+    width 180px
     height @width
     img
       width 180px
@@ -68,10 +68,16 @@
         margin-left 4px
   .m-l-d-list
     padding 47px 30px 40px 39px
-    border 1px solid $color-bd-gray
+    border-right 1px solid $color-bd-gray
     margin-right 271px
     display flex
-    flex-direction row
+    flex-direction column
     .comment-title
       width 100%
       padding-left 0
+.base-music-list-table
+  display flex
+  flex-direction column
+  .base-music-list-header
+    display flex
+    flex-direction row

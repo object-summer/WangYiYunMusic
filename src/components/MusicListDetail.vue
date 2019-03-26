@@ -31,6 +31,10 @@
           <span>38首歌</span>
           <span>播放:25454次</span>
         </div>
+        <s-test></s-test>
+        <div class="comment-container">
+          <s-music-list-table :columns="columns" :items="musicListTracks"></s-music-list-table>
+        </div>
       </div>
     </div>
   </div>
@@ -39,12 +43,45 @@
 <script>
   // resource/comments 评论和热评
   // song/lyric?csrf_token=7f61ca4297752734这是歌词
+  import Test from 'test'
+  import MusicListTable from './musicListTable.vue'
   export default {
+    components: {SMusicListTable: MusicListTable, STest: Test},
     data () {
       return {
         musicListDetail: [],
-        creatorInfo: {}
+        creatorInfo: {},
+        columns: [],
+        musicListTracks: []
       }
+    },
+    beforeMount () {
+      this.columns = [
+        {
+          // 序号
+          headerName: '',
+          headerStyle: {textAlign: 'center'},
+          width: 150
+        },
+        {
+          headerName: '歌曲标题',
+          headerStyle: {textAlign: 'center'},
+          width: 150
+        },
+        {
+          headerName: '时长',
+          headerStyle: {textAlign: 'center'},
+          width: 150
+        },
+        {
+          headerName: '歌手',
+          width: 150
+        },
+        {
+          headerName: '专辑',
+          width: 150
+        }
+      ]
     },
     created () {
       let id = this.$route.query.id
@@ -61,6 +98,7 @@
             let data = rst.data.playlist
             this.musicListDetail = data
             this.creatorInfo = data.creator
+            this.musicListTracks = data.tracks
           }
         })
       }
