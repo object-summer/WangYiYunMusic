@@ -64,8 +64,11 @@
         border-radius 4px
     .creator-desc
       color $color-font-gray
-      span
+      .desc-text
+        display inline-block
         margin-left 4px
+      .mask
+        color #000
   .m-l-d-list
     padding 47px 30px 40px 39px
     border-right 1px solid $color-bd-gray
@@ -81,3 +84,10 @@
   .base-music-list-header
     display flex
     flex-direction row
+  .base-music-list-content
+    .base-music-list-table-row
+      display flex
+      flex-direction row
+      >div
+        flex 1
+
